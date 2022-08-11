@@ -1,0 +1,33 @@
+﻿<Page x:Class="Terminal.Views.Pages.ATMCheckPage.ATMCheckPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Terminal.Views.Pages.ATMCheckPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="819.2" d:DesignWidth="1280"
+      Title="ATMCheckPage">
+
+    <Grid Name="ATMCheckGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition  Width="640"/>
+            <ColumnDefinition Width="320"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="InstaPageBottomRowDefinition"/>
+            <RowDefinition x:Name="InstaPageCenterRowDefinition"/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="0" Grid.Column="1" x:Name="CustomerLogoFrame">
+
+        </Frame>
+        <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" x:Name="CustomerContactFrame">
+
+        </Frame>
+        
+        <Frame Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Name="ATMCheckContent"></Frame> 
+    </Grid>
+</Page>

@@ -1,0 +1,105 @@
+﻿<Page x:Class="Terminal.Views.UIComponents.ServicesProvided.ServicesProvided"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Terminal.Views.UIComponents.ServicesProvided"
+      xmlns:vm="clr-namespace:Terminal.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicesProvided">
+    <Page.DataContext>
+        <vm:MainPageViewModel></vm:MainPageViewModel>
+    </Page.DataContext>
+
+    <Grid x:Name="ServicesProvidedGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="DepartmentsList" Grid.Column="0" ItemsSource="{Binding Departments.departmentsList}" Background="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Border 
+                            BorderBrush="#8A418F"
+                            BorderThickness="2"
+                            CornerRadius="15"
+                            Background="#C09FBB"
+                            >
+                            <Button 
+                            Content="{Binding name}"
+                            Command="{Binding SelectDepartmentServices}" 
+                            CommandParameter="{Binding id}"
+                            Background="Transparent"
+                            Width="400"
+                            Height="60"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="White"
+                            
+                            >
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <TextBlock Text="{TemplateBinding Content}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+
+
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <ListView x:Name="ServicesList" Grid.Column="1" ItemsSource="{Binding  SelectedServices}" Background="Transparent"  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border
+                         BorderBrush="#8A418F"
+                            BorderThickness="2"
+                            CornerRadius="15"
+                            Background="#C09FBB"                        
+                        >
+                            <Button Content="{Binding    serviceName}"
+                              Background="Transparent"
+                            Width="400"
+                            Height="60"
+                            FontSize="20"
+                            FontWeight="Bold"
+                            Foreground="White"  
+                                
+                            >
+                                <Button.Style>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="{x:Type Button}">
+                                                    <TextBlock Text="{TemplateBinding Content}" FontSize="20" TextWrapping="Wrap"/>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </Button.Style>
+                            </Button>
+                        </Border>
+                    </Grid>
+                    
+                    
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </Grid>
+</Page>

@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E651019-4A61-41D9-A2B1-7BD6863B69DE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Terminal</RootNamespace>
+    <AssemblyName>Terminal</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LoadingIndicators.WPF, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LoadingIndicators.WPF.0.0.1\lib\LoadingIndicators.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.20.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.20.0\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.20.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.20.0\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.20.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.20.0\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.20.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.20.0\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.20.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.20.0\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Models\API\BackServer\PaymentAskByVisitCode.cs" />
+    <Compile Include="Models\API\BackServer\Services.cs" />
+    <Compile Include="Models\API\BackServer\Departments.cs" />
+    <Compile Include="Models\API\BillValidator\Commands.cs" />
+    <Compile Include="Models\API\BillValidator\InCommingSocket.cs" />
+    <Compile Include="Models\API\Serializable\PaymentAsk.cs" />
+    <Compile Include="Models\Clients\ClientVariables.cs" />
+    <Compile Include="Models\Clients\Serializable\ClientVariable.cs" />
+    <Compile Include="Models\Clients\Serializable\Departments.cs" />
+    <Compile Include="Models\Clients\Serializable\Services.cs" />
+    <Compile Include="Models\Clients\Departments.cs" />
+    <Compile Include="Models\Clients\Services.cs" />
+    <Compile Include="Models\Commands\CapsLock.cs" />
+    <Compile Include="Models\Commands\EnterCode.cs" />
+    <Compile Include="Models\Commands\HomePageBackCommand.cs" />
+    <Compile Include="Models\Commands\HomePageNextCommand.cs" />
+    <Compile Include="Models\Commands\InfoToPhoneNUmberCommand.cs" />
+    <Compile Include="Models\Commands\InputPatientVisitCodeKeyDeleteLast.cs" />
+    <Compile Include="Models\Commands\InputPatientVisitCodeKeyDelete.cs" />
+    <Compile Include="Models\Commands\PatientCinicBackCommand.cs" />
+    <Compile Include="Models\Commands\PatientPayCommand.cs" />
+    <Compile Include="Models\Commands\PatientPayFinalCommand.cs" />
+    <Compile Include="Models\Commands\PatientPhoneNumberCommand.cs" />
+    <Compile Include="Models\Commands\PatientPhoneNumberDelete.cs" />
+    <Compile Include="Models\Commands\PatientPhoneNumberDeleteLast.cs" />
+    <Compile Include="Models\Commands\PayToPhoneNumberCommand.cs" />
+    <Compile Include="Models\Commands\PhoneNumberPageNextArrowCommand.cs" />
+    <Compile Include="Models\Commands\SelectKeyboardLanguage.cs" />
+    <Compile Include="Models\Commands\SelectDepartmentServices.cs" />
+    <Compile Include="Models\Commands\SelectLanguage.cs" />
+    <Compile Include="Models\Cryptography\IJWT.cs" />
+    <Compile Include="Models\Cryptography\JWT.cs" />
+    <Compile Include="Models\Cryptography\RC4.cs" />
+    <Compile Include="Models\KeyboardModels\Keyboard.cs" />
+    <Compile Include="Models\Loadings\Loadings.cs" />
+    <Compile Include="Models\Patients\PatientVariables.cs" />
+    <Compile Include="Models\Patients\Serializable\PatientVariable.cs" />
+    <Compile Include="Models\Statics.cs" />
+    <Compile Include="Models\Wait\WaitPage.cs" />
+    <Compile Include="Models\Wait\WaitPageAnimation.cs" />
+    <Compile Include="Properties\KeyboardArmenian.Designer.cs">
+      <DependentUpon>KeyboardArmenian.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\KeyboardRussian.Designer.cs">
+      <DependentUpon>KeyboardRussian.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\KeyboardEnglish.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KeyboardEnglish.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Translations.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Translations.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="Views\Contents\Content.xaml.cs">
+      <DependentUpon>Content.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Footers\Footer.xaml.cs">
+      <DependentUpon>Footer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Headers\Header.xaml.cs">
+      <DependentUpon>Header.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ATMCheckPage\ATMCheckPage.xaml.cs">
+      <DependentUpon>ATMCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\CodeActivatePage\CodeActivatePage.xaml.cs">
+      <DependentUpon>CodeActivatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\HomePage\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PatientClinicInfoPage\PatientClinicInfoPage.xaml.cs">
+      <DependentUpon>PatientClinicInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ServicesPage\ContentPage2.xaml.cs">
+      <DependentUpon>SermicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ErrorPage\ErrorPage.xaml.cs">
+      <DependentUpon>ErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PatientPayPage\PatientPayPage.xaml.cs">
+      <DependentUpon>PatientPayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PhoneNumberPage\PhoneNumberPage.xaml.cs">
+      <DependentUpon>PhoneNumberPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\ATMCheck\ATMCheck.xaml.cs">
+      <DependentUpon>ATMCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\CodeActivate\CodeActivate.xaml.cs">
+      <DependentUpon>CodeActivate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\CodeActivate\CodeActivateCommand.cs" />
+    <Compile Include="Views\UIComponents\CustomerContacts\CustomerContacts.xaml.cs">
+      <DependentUpon>CustomerContacts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\CustomerLogo\CustomerLogo.xaml.cs">
+      <DependentUpon>CustomerLogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\Keyboard\Keyboard.xaml.cs">
+      <DependentUpon>Keyboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\Lenguages\Lenguages.xaml.cs">
+      <DependentUpon>Lenguages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\Logo\Logo.xaml.cs">
+      <DependentUpon>Logo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\PatientClinicInfoContent\PatientClinicInfoContent.xaml.cs">
+      <DependentUpon>PatientClinicInfoContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\PatientClinicPayContent\PatientClinicPayContent.xaml.cs">
+      <DependentUpon>PatientClinicPayContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\PhoneNumberContents\PhoneNumberContent.xaml.cs">
+      <DependentUpon>PhoneNumberContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UIComponents\ServicesProvided\ServicesProvided.xaml.cs">
+      <DependentUpon>ServicesProvided.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Contents\Content.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Footers\Footer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Headers\Header.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ATMCheckPage\ATMCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\CodeActivatePage\CodeActivatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\HomePage\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PatientClinicInfoPage\PatientClinicInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Pages\ServicesPage\SermicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\ErrorPage\ErrorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PatientPayPage\PatientPayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\PhoneNumberPage\PhoneNumberPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\ATMCheck\ATMCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\CodeActivate\CodeActivate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\CustomerContacts\CustomerContacts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\CustomerLogo\CustomerLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\Keyboard\Keyboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\Lenguages\Lenguages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\Logo\Logo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\PatientClinicInfoContent\PatientClinicInfoContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\PatientClinicPayContent\PatientClinicPayContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\PhoneNumberContents\PhoneNumberContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UIComponents\ServicesProvided\ServicesProvided.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\KeyboardArmenian.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyboardArmenian.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\KeyboardRussian.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyboardRussian.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\KeyboardEnglish.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KeyboardEnglish.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Translations.ru.resx" />
+    <EmbeddedResource Include="Properties\Translations.am.resx" />
+    <EmbeddedResource Include="Properties\Translations.en.resx" />
+    <EmbeddedResource Include="Properties\Translations.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Translations.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Models\Commands\InputPatientVisitCodeKey.cs" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Contents\" />
+    <Folder Include="Images\Pages\ATMCheckPage\" />
+    <Folder Include="Images\Pages\CodeActivatePage\" />
+    <Folder Include="Images\Pages\ErrorPage\" />
+    <Folder Include="Images\UIComponents\CodeActivate\" />
+    <Folder Include="Images\UIComponents\CustomerContacts\" />
+    <Folder Include="Images\UIComponents\Logo\" />
+    <Folder Include="Images\UIComponents\PatientClinicInfoContent\" />
+    <Folder Include="Images\UIComponents\PhoneNumberContents\" />
+    <Folder Include="Images\UIComponents\ServicesProvided\" />
+    <Folder Include="LocalFiles\" />
+    <Folder Include="Models\API\BillValidator\Serializable\" />
+    <Folder Include="TerminalLocal\DepartmentsServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Footers\Moons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Footers\MoonsContact.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Footers\MoonsLicens.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Footers\PaywayLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Headers\HeaderImageFan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Headers\HomeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pages\HomePage\NextArrowFan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pages\PatientClinicInfoPage\BackArrowFan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pages\PatientPayPage\BackArrowFan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pages\PhoneNumberPage\BackArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pages\PhoneNumberPage\NextArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Pages\ServicesPage\BackArrowFan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\ATMCheck\ManAndTerm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\ATMCheck\PaywayLOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\CustomerLogo\Fanarjyan_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\Keyboard\BackArrowFan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\Languages\Am.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\Languages\En.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\Languages\Ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UIComponents\PatientClinicPayContent\Ellipse.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

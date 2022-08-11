@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Terminal.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BillValidatorSecureKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1!k699(ywTk!le8jdh7673gh{)y3Hyfhf67!!</Value>
+    </Setting>
+    <Setting Name="BillValidatorServerSocket" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ws://192.168.10.162:55555/socket/out</Value>
+    </Setting>
+    <Setting Name="BillValidatorServerIpAndPort" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://192.168.10.162:55555</Value>
+    </Setting>
+    <Setting Name="KeyboardLanguages" Type="System.String" Scope="User">
+      <Value Profile="(Default)">am,en,ru</Value>
+    </Setting>
+    <Setting Name="TerminalKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">etytwh5624gadf%^gh786745JHHJjkjhdgb9834rhjb3rthreh9gh9834buibgyub8g7ergh956yjh76j-3f29879</Value>
+    </Setting>
+    <Setting Name="BackServerURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://payway.am</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

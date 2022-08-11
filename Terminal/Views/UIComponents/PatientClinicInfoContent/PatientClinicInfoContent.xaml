@@ -1,0 +1,186 @@
+﻿<Page x:Class="Terminal.Views.UIComponents.PatientClinicInfoContent.PatientClinicInfoContent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Terminal.Views.UIComponents.PatientClinicInfoContent"
+      xmlns:vm="clr-namespace:Terminal.ViewModels"
+      xmlns:p="clr-namespace:Terminal.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1280"
+      Title="PatientClinicInfoContent">
+
+    <Page.DataContext>
+        <vm:MainPageViewModel></vm:MainPageViewModel>
+    </Page.DataContext>
+    <Grid>
+        <Border Background="Orange" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <WrapPanel>
+                <Label  Content="{Binding ToBePaid}" Foreground="White" FontSize="25" FontWeight="Bold"></Label>
+                <Label  Content="{Binding MustPaymentSumm}" Foreground="White" FontSize="25" FontWeight="Bold"></Label>
+            </WrapPanel>
+            
+        </Border>
+        <Border Background="#14cc48" Height="100" Width="200" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0,0,50,0" CornerRadius="100" Padding="10" >
+            <Button  Content="{Binding Pay}" Foreground="White" FontSize="30" Command="{Binding InfoToPhoneNUmberCommand}"  >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Border>
+        <Grid Name="PatientClinicInfoContentGrid" Height="500px" Margin="0,-180,0,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="640" ></RowDefinition>
+                <RowDefinition Height="100"  ></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Background="White" HorizontalAlignment="Center" BorderBrush="#0e4861"  BorderThickness="3" CornerRadius="10" >
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="{Binding PatientName}" HorizontalAlignment="Center" FontSize="18"></Label>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{Binding PaymentAsk.visitor}" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"></Label>
+                    <Label Grid.Row="1" Grid.Column="0" Content="{Binding VisitDateTime}" HorizontalAlignment="Center" FontSize="18"></Label>
+                    <Label Grid.Row="1" Grid.Column="1" Content="{Binding PaymentAsk.visitDateTime}" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"></Label>
+                    <Label Grid.Row="2" Grid.Column="0" Content="{Binding VisitCode}" HorizontalAlignment="Center" FontSize="18"></Label>
+                    <Label Grid.Row="2" Grid.Column="1" Content="{Binding PaymentAsk.visitCode}" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold"></Label>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1"  VerticalAlignment="Top" Padding="0,0,20,0">
+                <Grid    >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Background="WhiteSmoke" BorderThickness="2" BorderBrush="#0e4861" Margin="5" CornerRadius="10" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" ></RowDefinition>
+                                <RowDefinition  ></RowDefinition>
+                                <RowDefinition  ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Content="{Binding Services}" HorizontalContentAlignment="Center" Foreground="#0e4861" FontSize="20" FontWeight="DemiBold" ></Label>
+                            <ScrollViewer Grid.Row="1"  >
+                                <ItemsControl   ItemsSource="{Binding PaymentAsk.services }" HorizontalAlignment="Center" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Height="140" Margin="5" BorderThickness="1" BorderBrush="#0e4861" CornerRadius="10"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition ></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                        <RowDefinition></RowDefinition>
+                                                    </Grid.RowDefinitions>
+                                                    <Label Grid.Column="0" Grid.Row="0"  Content="{Binding Name}" FontSize="15" Padding="0" ></Label>
+                                                    <Label Grid.Column="1" Grid.Row="0" Content="{Binding serviceName}" FontSize="15" FontWeight="ExtraBold" Padding="0"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="1" Content="{Binding Quantity}" FontSize="15" Padding="2"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="1" Content="{Binding  serviceQuantity}" FontSize="15" FontWeight="ExtraBold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="2" Content="{Binding Price}" FontSize="15" Padding="2"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="2" Content="{Binding  servicePrice}" FontSize="15" FontWeight="ExtraBold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="3" Content="{Binding Amount}" FontSize="15" Padding="2"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="3" Content="{Binding  serviceAmount}" FontSize="15" FontWeight="ExtraBold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="4" Content="{Binding Discount}" FontSize="15" Padding="2"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="4" Content="{Binding  serviceDiscount}" FontSize="15" FontWeight="ExtraBold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="5" Content="{Binding StateOrder}" FontSize="15" Padding="2"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="5" Content="{Binding  serviceStateOrder}" FontSize="15" FontWeight="ExtraBold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="6" Content="{Binding ToBePaid}" FontSize="15" Padding="2"></Label>
+                                                    <Label Grid.Column="1" Grid.Row="6" Content="{Binding  serviceToBePaid}" FontSize="15" FontWeight="ExtraBold" Padding="2" Foreground="red"></Label>
+
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                            <WrapPanel Grid.Row="2">
+                                <Label  Content="{Binding Total}" FontSize="25"></Label>
+                                <Label Content="{Binding PaymentAsk.mustBePaidTotal}" FontSize="25" Foreground="Red"></Label>
+                            </WrapPanel>
+
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Column="1" Background="WhiteSmoke" BorderThickness="2" BorderBrush="#0e4861" Margin="5" CornerRadius="10" >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" ></RowDefinition>
+                                <RowDefinition  ></RowDefinition>
+                                <RowDefinition  ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Content="{Binding Payments}" HorizontalContentAlignment="Center" Foreground="#0e4861" FontSize="20" FontWeight="DemiBold" ></Label>
+                            <ScrollViewer Grid.Row="1"  >
+                                <ItemsControl   ItemsSource="{Binding PaymentAsk.visitPayments }" HorizontalAlignment="Center" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Height="100" Margin="5" BorderThickness="1" BorderBrush="#0e4861" CornerRadius="10"  >
+                                                <Grid >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition ></RowDefinition>
+                                                        <RowDefinition ></RowDefinition>
+                                                        <RowDefinition ></RowDefinition>
+                                                        <RowDefinition ></RowDefinition>
+
+                                                    </Grid.RowDefinitions>
+                                                    <Label Grid.Column="0" Grid.Row="0"  Content="DateTime" FontSize="15" Padding="2" ></Label>
+                                                    <Label Grid.Column="1" Grid.Row="0" Content="{Binding payedDateTime}" FontSize="15" FontWeight="Bold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="1"  Content="Payed" FontSize="15" Padding="2" ></Label>
+                                                    <Label Grid.Column="1" Grid.Row="1" Content="{Binding payed}" FontSize="15" FontWeight="Bold" Padding="2" Foreground="Green"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="2"  Content="PrePayed" FontSize="15" Padding="2" ></Label>
+                                                    <Label Grid.Column="1" Grid.Row="2" Content="{Binding prePayed}" FontSize="15" FontWeight="Bold" Padding="2"></Label>
+                                                    <Label Grid.Column="0" Grid.Row="3"  Content="Phone" FontSize="15" Padding="2" ></Label>
+                                                    <Label Grid.Column="1" Grid.Row="3" Content="{Binding prePayedPhoneNumber}" FontSize="15" FontWeight="Bold" Padding="2"></Label>
+                                                </Grid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                            <WrapPanel Grid.Row="2">
+                                <Label  Content="{Binding Total}" FontSize="25"></Label>
+                                <Label Content="{Binding PaymentAsk.PaidTotal}" FontSize="25" Foreground="Green"></Label>
+                            </WrapPanel>
+
+                        </Grid>
+                    </Border>
+
+                </Grid>
+            </Border>
+            
+
+        </Grid>
+
+    </Grid>
+
+</Page>
